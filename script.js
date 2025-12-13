@@ -4,7 +4,7 @@
 (function () {
     // Check if emailjs is loaded
     if (typeof emailjs !== 'undefined') {
-        emailjs.init("YOUR_PUBLIC_KEY");
+        emailjs.init("294RHcNauHtG3rGKz");
     } else {
         console.error("EmailJS SDK not loaded!");
     }
@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
             submitBtn.disabled = true;
 
             // Generate these IDs in the EmailJS dashboard
-            const serviceID = 'YOUR_SERVICE_ID'; // e.g., 'service_xyz'
-            const templateID = 'YOUR_TEMPLATE_ID'; // e.g., 'template_abc'
+            const serviceID = 'service_c7umiyq'; // e.g., 'service_xyz'
+            const templateID = 'template_luu8zvr'; // e.g., 'template_abc'
 
             // Send the form
             // 'this' refers to the form element
