@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="theme-aura">
     <header>
         <nav>
             <div class="left">
-                Aakash's Portfolio
+                Aakash<span class="purple">.</span>
             </div>
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="hamburger-menu">
@@ -31,11 +32,22 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact Me</a></li>
                 </ul>
+                <div class="theme-switch-wrapper">
+                    <button id="theme-toggle-btn" title="Choose Theme">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div class="theme-palette" id="theme-palette">
+                        <div class="theme-swatch swatch-aura" data-theme="theme-aura" title="Aura Theme"></div>
+                        <div class="theme-swatch swatch-ocean" data-theme="theme-ocean" title="Ocean Theme"></div>
+                        <div class="theme-swatch swatch-emerald" data-theme="theme-emerald" title="Emerald Theme"></div>
+                        <div class="theme-swatch swatch-light" data-theme="theme-light" title="Pure Light Theme"></div>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
     <main>
-        <section class="firstSection">
+        <section class="firstSection" data-aos="fade-up">
             <div class="leftSection">
                 Hi! I'm <span class="purple">Aakash</span>
                 <div>and I am a passionate</div>
@@ -46,7 +58,7 @@
             </div>
         </section>
         <hr>
-        <section class="about-section section" id="about">
+        <section class="about-section section" id="about" data-aos="fade-up">
             <div class="container">
                 <div class="section-title">
                     <h2>About Me</h2>
@@ -105,7 +117,7 @@
                                 </div>
                             </div>
                         </a>
-                        <section class="skills section" id="skills">
+                        <section class="skills section" id="skills" data-aos="fade-up">
                             <div class="container">
                                 <div class="row">
                                     <div class="skills-category padd-15">
@@ -176,7 +188,7 @@
                         </section>
 
 
-                        <section class="education-experience section" id="education-experience">
+                        <section class="education-experience section" id="education-experience" data-aos="fade-up">
                             <div class="container">
                                 <div class="row">
                                     <div class="timeline-box padd-15">
@@ -226,6 +238,33 @@
                                             <div class="timeline-item">
                                                 <div class="circle-dot"></div>
                                                 <h6 class="timeline-date">
+                                                    <i class="fa fa-calendar"></i> February 2026 - Present
+                                                </h6>
+                                                <h4 class="timeline-title">Senior Analyst @HCL Tech</h4>
+                                                <p class="timeline-text">
+                                                    Promoted to Senior Analyst in recognition of consistent performance
+                                                    and technical expertise. Leading troubleshooting for
+                                                    enterprise-scale deployments, managing high-priority escalations,
+                                                    and mentoring junior analysts while ensuring 100% SLA compliance.
+                                                </p>
+                                            </div>
+
+                                            <div class="timeline-item">
+                                                <div class="circle-dot"></div>
+                                                <h6 class="timeline-date">
+                                                    <i class="fa fa-calendar"></i> April 2023 - January 2026
+                                                </h6>
+                                                <h4 class="timeline-title">Analyst @HCL Tech</h4>
+                                                <p class="timeline-text">
+                                                    Remote Desktop Specialist handling advanced technical support across
+                                                    Windows, macOS, and Linux. Managed VPNs, Zscaler, and domain
+                                                    migrations. Expert in Intune, Splunk, and Active Directory.
+                                                </p>
+                                            </div>
+
+                                            <div class="timeline-item">
+                                                <div class="circle-dot"></div>
+                                                <h6 class="timeline-date">
                                                     <i class="fa fa-calendar"></i> March 2022 - March 2023
                                                 </h6>
                                                 <h4 class="timeline-title">HCL Techbee Program</h4>
@@ -233,31 +272,6 @@
                                                     Learnt about Windows, Linux, Networks, SQL, Email Writing and Work
                                                     Ethics.
                                                 </p>
-                                            </div>
-
-                                            <div class="timeline-item">
-                                                <div class="circle-dot"></div>
-                                                <h6 class="timeline-date">
-                                                    <i class="fa fa-calendar"></i> April 2023 - Present
-                                                </h6>
-                                                <h4 class="timeline-title">Analyst @HCL Tech</h4>
-                                                <p class="timeline-text">
-                                                    I work as a Remote Desktop Specialist at HCL Technologies, where I
-                                                    handle advanced technical support across Windows, macOS, and Linux
-                                                    environments. My role involves troubleshooting complex system,
-                                                    network, and security issues, managing VPNs and Zscaler
-                                                    configurations, and supporting domain migrations with minimal
-                                                    downtime. I’ve worked extensively with tools like Cisco Packet
-                                                    Tracer, Versa SD-WAN, SolarWinds, Splunk, and Intune for endpoint
-                                                    management, monitoring, and compliance. Alongside system
-                                                    administration tasks such as Active Directory and registry
-                                                    management, I’ve led queue operations, handled escalations, and
-                                                    ensured SLA compliance. My recent projects include Intune-based BYOD
-                                                    setup and application deployment, Windows Hello for Business
-                                                    rollout, and proactive endpoint performance monitoring using
-                                                    Aternity and Splunk—all aimed at improving system reliability, user
-                                                    experience, and enterprise security.
-                                                    </EM>
                                             </div>
                                         </div>
                                     </div>
@@ -271,7 +285,44 @@
 
         <hr>
 
-        <section class="projects-section section" id="projects">
+        <section class="certifications section" id="certifications" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title padd-15">
+                        <h2>Certifications</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="timeline-box padd-15" style="flex: 0 0 100%; max-width: 100%;">
+                        <div class="timeline shadow-dark"
+                            style="display: flex; flex-wrap: wrap; gap: 20px; border-left: none; padding-left: 0;">
+                            <div class="info-card" style="flex: 1; min-width: 300px;">
+                                <div class="icon-box">
+                                    <i class="fab fa-apple"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h4>Apple Certified Support Professional</h4>
+                                    <p>macOS Support & Troubleshooting</p>
+                                </div>
+                            </div>
+                            <div class="info-card" style="flex: 1; min-width: 300px;">
+                                <div class="icon-box">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <div class="info-text">
+                                    <h4>Microsoft Certified: Azure Fundamentals</h4>
+                                    <p>AZ-900 Certification</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="projects-section section" id="projects" data-aos="fade-up">
             <div class="container">
                 <div class="row">
                     <div class="section-title padd-15">
@@ -373,7 +424,7 @@
 
         <hr>
 
-        <section id="contact" class="section">
+        <section id="contact" class="section" data-aos="fade-up">
             <div class="container-s">
                 <div class="contact-header">
                     <h2>Get In Touch</h2>
@@ -450,8 +501,14 @@
         });
     </script>
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out'
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 

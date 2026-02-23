@@ -11,8 +11,54 @@
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
-    const contactForm = document.getElementById('contact-form');
+    // Theme Selector Palette Logic
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const themePalette = document.getElementById('theme-palette');
+    const swatches = document.querySelectorAll('.theme-swatch');
 
+    // Load saved theme
+    const currentTheme = localStorage.getItem('portfolio-theme') || 'theme-aura';
+    document.body.className = currentTheme;
+    updateActiveSwatch(currentTheme);
+
+    // Toggle Palette
+    if (themeBtn && themePalette) {
+        themeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            themePalette.classList.toggle('active');
+        });
+
+        // Close palette when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!themePalette.contains(e.target) && e.target !== themeBtn) {
+                themePalette.classList.remove('active');
+            }
+        });
+    }
+
+    // Swatch Selection
+    swatches.forEach(swatch => {
+        swatch.addEventListener('click', (e) => {
+            const newTheme = swatch.getAttribute('data-theme');
+            document.body.className = newTheme;
+            localStorage.setItem('portfolio-theme', newTheme);
+            updateActiveSwatch(newTheme);
+            themePalette.classList.remove('active');
+        });
+    });
+
+    function updateActiveSwatch(themeName) {
+        swatches.forEach(s => {
+            if (s.getAttribute('data-theme') === themeName) {
+                s.classList.add('active');
+            } else {
+                s.classList.remove('active');
+            }
+        });
+    }
+
+    // EmailJS Contact Form Logic
+    const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function (event) {
             event.preventDefault();
@@ -22,15 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
             submitBtn.innerText = 'Sending...';
             submitBtn.disabled = true;
 
-            // Generate these IDs in the EmailJS dashboard
-            const serviceID = 'service_c7umiyq'; // e.g., 'service_xyz'
-            const templateID = 'template_luu8zvr'; // e.g., 'template_abc'
+            const serviceID = 'service_c7umiyq';
+            const templateID = 'template_luu8zvr';
 
-            // Send the form
-            // 'this' refers to the form element
             emailjs.sendForm(serviceID, templateID, this)
                 .then(function () {
-                    console.log('SUCCESS!');
                     alert('Message sent successfully!');
                     contactForm.reset();
                     submitBtn.innerText = 'Message Sent';
@@ -40,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }, 3000);
                 }, function (error) {
                     console.log('FAILED...', error);
-                    alert('Failed to send message. Please try again or contact directly via email.');
+                    alert('Failed to send message. Please try again.');
                     submitBtn.innerText = originalBtnText;
                     submitBtn.disabled = false;
                 });
