@@ -71,20 +71,41 @@ document.addEventListener('DOMContentLoaded', function () {
             const serviceID = 'service_c7umiyq';
             const templateID = 'template_luu8zvr';
 
+            const messageBox = document.getElementById('form-message');
+
             emailjs.sendForm(serviceID, templateID, this)
                 .then(function () {
-                    alert('Message sent successfully!');
                     contactForm.reset();
                     submitBtn.innerText = 'Message Sent';
+
+                    // Show success message in UI
+                    if (messageBox) {
+                        messageBox.innerText = 'Message sent successfully!';
+                        messageBox.className = 'form-message success';
+                        messageBox.style.display = 'block';
+                    }
+
                     setTimeout(() => {
                         submitBtn.innerText = originalBtnText;
                         submitBtn.disabled = false;
-                    }, 3000);
+                        if (messageBox) {
+                            messageBox.style.display = 'none';
+                        }
+                    }, 5000);
                 }, function (error) {
                     console.log('FAILED...', error);
-                    alert('Failed to send message. Please try again.');
                     submitBtn.innerText = originalBtnText;
                     submitBtn.disabled = false;
+
+                    // Show error message in UI
+                    if (messageBox) {
+                        messageBox.innerText = 'Failed to send message. Please try again.';
+                        messageBox.className = 'form-message error';
+                        messageBox.style.display = 'block';
+                        setTimeout(() => {
+                            messageBox.style.display = 'none';
+                        }, 5000);
+                    }
                 });
         });
     }
